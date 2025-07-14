@@ -1,0 +1,28 @@
+creer base de donnee partage_objets:(Jimmy)
+    .creer tableau:
+        -tableau membre ok 
+        -tableau categorie_objet ok 
+        -objet ok 
+        -images_objet ok 
+        -emprunt ok
+
+    .inserer donne:(Jimmy)
+        -4 membres ok
+        -4 categorie ok
+        -10 objet par membre ok
+        -10 emprunts ok
+
+creer connexion.php(Anthony)
+    connexion a la base(Anthony)ok
+
+creation du login (Anthony)
+    function verifier, connecter ok
+    page de formulaire ok
+    traitementlogin ok
+    traitement inscription ok
+    filtrer les objets ok 
+
+
+
+
+
