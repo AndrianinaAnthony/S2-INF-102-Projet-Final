@@ -6,7 +6,7 @@ $bdd = dbconnect();
 
 $nom_user = $_SESSION['nom_user'];
 
-$sql_categorie = "SELECT * FROM categorie_objet";
+$sql_categorie = "SELECT * FROM emprunt_categorie_objet";
 $resultat_categories_1 = mysqli_query($bdd, $sql_categorie); 
 $resultat_categories_2 = mysqli_query($bdd, $sql_categorie);
 
