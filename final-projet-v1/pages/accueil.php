@@ -43,12 +43,12 @@ $resultat_objets = mysqli_query($bdd, $sql);
     
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="fw-bold">Bienvenue, <?php echo $nom_user; ?> 👋</h3>
-        <a href="logout.php" class="btn btn-outline-danger">Déconnexion</a>
+        <a href="../inc/deconnexion.php" class="btn btn-outline-danger">Déconnexion</a>
     </div>
 
     <div class="card shadow mb-4 p-4">
-        <h5 class="mb-3">Choisissez une catégorie pour emprunter un objet :</h5>
-        <form method="get" action="emprunter_par_categorie.php">
+        <h5 class="mb-3">Entrer un nouvel objet dans la categorie de votre choix</h5>
+        <form method="get" action="entrer_objet.php">
             <div class="row">
                 <div class="col-md-6">
                     <select name="categorie" class="form-select" required>
@@ -56,12 +56,13 @@ $resultat_objets = mysqli_query($bdd, $sql);
                         <?php while ($cat = mysqli_fetch_assoc($resultat_categories_2)) { ?>
                             <option value="<?php echo $cat['id_categorie']; ?>">
                                 <?php echo $cat['nom_categorie']; ?>
+                                <input type="hidden" name="id_categ" value="<?php echo $cat['id_categorie']; ?>">
                             </option>
                         <?php } ?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary w-100">Voir les objets à emprunter</button>
+                    <button type="submit" class="btn btn-primary w-100">Ajouter un objet</button>
                 </div>
             </div>
         </form>
@@ -90,7 +91,9 @@ $resultat_objets = mysqli_query($bdd, $sql);
             <?php while ($objet = mysqli_fetch_assoc($resultat_objets)) { ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>
-                        <strong><?php echo $objet['nom_objet']; ?></strong><br>
+                        <a href="fiche_objet.php?id=<?php echo $objet['id_objet'] ?> ;">
+                            <strong><?php echo $objet['nom_objet']; ?></strong><br>
+                        </a>
                         <small class="text-muted">Catégorie : <?php echo $objet['nom_categorie']; ?></small>
                     </div>
                     <span class="badge bg-<?php echo $objet['date_retour'] ? 'warning' : 'success'; ?>">
