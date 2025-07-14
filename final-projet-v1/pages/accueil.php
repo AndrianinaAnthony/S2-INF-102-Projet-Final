@@ -16,8 +16,8 @@ if (isset($_GET['categorie'])) {
 }
 
 
-$sql = "SELECT objet.*, emprunt_categorie_objet.nom_categorie, emprunt_emprunt.date_retour 
-        FROM objet
+$sql = "SELECT emprunt_objet.*, emprunt_categorie_objet.nom_categorie, emprunt_emprunt.date_retour 
+        FROM emprunt_objet
         INNER JOIN emprunt_categorie_objet ON emprunt_objet.id_categorie = emprunt_categorie_objet.id_categorie
         LEFT JOIN emprunt_emprunt ON emprunt_objet.id_objet = emprunt_emprunt.id_objet";
 
